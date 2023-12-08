@@ -29,6 +29,8 @@ let Person = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
+mongoose.model("Person", Person);
+
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
 };
