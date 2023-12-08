@@ -14,9 +14,9 @@ mongoose
   });
 
 let Person = new mongoose.Schema({
-  name: { type: String, required: true, lowercase: true },
-  age: { type: Number, required: true },
-  favoriteFoods: { type: [String], lowercase: true },
+  name: { type: String, required: true },
+  age: Number,
+  favoriteFoods: [String],
   contactEmail: {
     type: String,
     required: true,
