@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const mongoose = require("mongoose");
+const validator = require("validator");
 
 mongoose
   .connect(process.env.MONGO_URI, {
@@ -12,7 +13,21 @@ mongoose
     return m.connection.getClient();
   });
 
-let Person;
+let Person = new mongoose.Schema({
+  firstName: { type: String, required: true, lowercase: true },
+  age: { type: Number, required: true },
+  favoriteFoods: { type: [String], lowercase: true },
+  contactEmail: {
+    type: String,
+    required: true,
+    unique: true,
+    lowercase: true,
+    validate: (value) => {
+      return validator.isEmail(value);
+    },
+  },
+  createdAt: { type: Date, default: Date.now },
+});
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
