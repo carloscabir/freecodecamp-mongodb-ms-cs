@@ -13,7 +13,7 @@ mongoose
     return m.connection.getClient();
   });
 
-let Person = new mongoose.Schema({
+const personSchema = new mongoose.Schema({
   name: { type: String, required: true },
   age: Number,
   favoriteFoods: [String],
@@ -29,7 +29,7 @@ let Person = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
-mongoose.model("Person", Person);
+let Person = mongoose.model("Person", personSchema);
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
