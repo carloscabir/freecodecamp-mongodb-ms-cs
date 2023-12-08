@@ -14,7 +14,7 @@ mongoose
   });
 
 let Person = new mongoose.Schema({
-  fullName: { type: String, required: true, lowercase: true },
+  name: { type: String, required: true, lowercase: true },
   age: { type: Number, required: true },
   favoriteFoods: { type: [String], lowercase: true },
   contactEmail: {
@@ -28,6 +28,8 @@ let Person = new mongoose.Schema({
   },
   createdAt: { type: Date, default: Date.now },
 });
+
+mongoose.model("Person", Person);
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
