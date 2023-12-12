@@ -77,7 +77,7 @@ const createManyPeople = (arrayOfPeople, done) => {
   ];
    */
 
-  Person.insertMany(arrayOfPeople, (err, data) => {
+  Person.create(arrayOfPeople, (err, data) => {
     if (err) return console.log(err);
     done(null, data);
     return data;
