@@ -48,6 +48,7 @@ const createAndSavePerson = (done) => {
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
+  /*
   const arrayOfPeople = [
     {
       name: "John",
@@ -74,6 +75,7 @@ const createManyPeople = (arrayOfPeople, done) => {
       contactEmail: "noemail@gmail.com",
     },
   ];
+   */
 
   Person.insertMany(arrayOfPeople, (err, data) => {
     if (err) return console.log(err);
